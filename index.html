@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Ranking Builder</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="dark">
+    <div id="app" class="app">
+        <header class="top-bar">
+            <div class="brand">
+                <span class="logo">加密排行榜 / CryptoRanking</span>
+                <a class="social-link" href="https://x.com/JL_EZM" target="_blank" rel="noopener noreferrer" title="关注作者" aria-label="关注作者">
+                    <svg class="x-icon" aria-hidden="true" viewBox="0 0 50 50" role="img" focusable="false">
+                        <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z" fill="currentColor"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="top-actions">
+                
+                <button id="langZhBtn" class="btn btn-ghost" data-lang="zh">中文</button>
+                <button id="langEnBtn" class="btn btn-ghost" data-lang="en">EN</button>
+                <div class="divider"></div>
+                <button id="themeToggle" class="btn btn-icon" aria-label="Toggle theme">
+                    <span class="icon" id="themeIcon">☀</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main">
+            <div id="shareArea">
+                <section class="board" id="board"></section>
+            </div>
+
+            <section class="pool">
+                <h2 class="section-title" id="poolTitle"></h2>
+                <div class="exchange-pool" id="exchangePool"></div>
+            </section>
+        </main>
+
+        <footer class="bottom-bar">
+            <button id="resetBtn" class="btn btn-secondary"></button>
+            <button id="copyImageBtn" class="btn btn-secondary"></button>
+            <button id="saveBtn" class="btn btn-success"></button>
+        </footer>
+    </div>
+
+    <div id="saveDialog" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="saveDialogTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="saveDialogTitle"></h3>
+                <button id="closeSaveDialog" class="btn btn-icon">?</button>
+            </div>
+            <div class="modal-body">
+                <button id="downloadPngBtn" class="btn btn-primary block"></button>
+                <button id="shareToXBtn" class="btn btn-outline block"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="./js/canvasRenderer.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/i18n.js"></script>
+    <script src="./js/state.js"></script>
+    <script src="./js/drag.js"></script>
+    <script src="./js/share.js"></script>
+    <script src="./js/xAuth.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
+
+
+
+
