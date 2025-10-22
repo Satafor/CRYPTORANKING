@@ -363,6 +363,9 @@ body {
     cursor: grab;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
     position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .exchange-card.dragging {
@@ -373,6 +376,17 @@ body {
 .exchange-card:hover {
     box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
     transform: translateY(-3px);
+}
+
+/* 触摸设备上的点击反馈 */
+.exchange-card:active {
+    transform: scale(0.95);
+}
+
+/* 幽灵拖拽元素样式 */
+.ghost-drag {
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3) !important;
+    transition: none !important;
 }
 
 .exchange-card img {
@@ -486,40 +500,133 @@ body {
     display: none;
 }
 
+/* 移动端优化 */
 @media (max-width: 768px) {
     .app {
-        padding: 24px 16px 40px;
+        padding: 16px 12px 32px;
     }
 
     .top-bar {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .brand .logo {
+        font-size: 16px;
     }
 
     .top-actions {
         width: 100%;
         justify-content: flex-start;
         flex-wrap: wrap;
+        gap: 8px;
     }
 
-    .hero {
-        flex-direction: column;
-        align-items: flex-start;
+    .btn {
+        padding: 8px 14px;
+        font-size: 13px;
     }
 
     .tier-row {
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 80px 1fr;
+        min-height: 90px;
     }
 
+    .tier-label {
+        font-size: 18px;
+        padding: 0 8px;
+    }
+
+    .tier-dropzone {
+        padding: 12px 10px;
+        gap: 8px;
+    }
+
+    .tier-dropzone::after {
+        font-size: 12px;
+        left: 10px;
+    }
+
+    /* 移动端卡片尺寸 */
     .exchange-card {
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
     }
 
     .exchange-card img {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+    }
+
+    /* 候选池 */
+    .pool {
+        margin-top: 20px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .exchange-pool {
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* 底部按钮 */
+    .bottom-bar {
+        margin-top: 24px;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .bottom-bar .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* 超小屏幕优化（手机竖屏）*/
+@media (max-width: 400px) {
+    .tier-row {
+        grid-template-columns: 70px 1fr;
+        min-height: 80px;
+    }
+
+    .tier-label {
+        font-size: 16px;
+        padding: 0 6px;
+    }
+
+    .exchange-card {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+    }
+
+    .exchange-card img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .tier-dropzone {
+        padding: 10px 8px;
+        gap: 6px;
+    }
+
+    .exchange-pool {
+        gap: 8px;
+    }
+
+    .bottom-bar {
+        flex-direction: column;
+    }
+
+    .bottom-bar .btn {
+        width: 100%;
     }
 }
 
